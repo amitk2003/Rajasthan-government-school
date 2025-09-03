@@ -1,0 +1,114 @@
+[
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "प्रधानाचार्य",
+    "name": "श्री अनिल कुमार जैन",
+    "degree": "M.Sc., B.Ed.",
+    "Designation": "Principal"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "कला वर्ग",
+    "name": "श्रीमती वीणा पंड्या",
+    "degree": "M.A., B.Ed.",
+    "Designation": "Lect. Hindi"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "कला वर्ग",
+    "name": "श्री सत्यपाल सिंह चौहान",
+    "degree": "M.A., B.Ed.",
+    "Designation": "Lect. Geography"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "कला वर्ग",
+    "name": "श्री अटलराम कुमार पाटीदार",
+    "degree": "M.A., B.Ed.",
+    "Designation": "Lect. Pol. Science"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "कला वर्ग",
+    "name": "श्रीमती गायत्री डांगला",
+    "degree": "M.A., B.Ed.",
+    "Designation": "Lect. English"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "कला वर्ग",
+    "name": "श्री मनोहर लाल उजाले",
+    "degree": "M.A., B.Ed.",
+    "Designation": "Lect. Economics"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "विज्ञान वर्ग",
+    "name": "श्री इम्तियाज शेख",
+    "degree": "M.Sc., B.Ed.",
+    "Designation": "Lect. Chemistry"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "विज्ञान वर्ग",
+    "name": "श्री चन्द्रपाल सिंह चौहान",
+    "degree": "M.Sc., B.Ed.",
+    "Designation": "Lect. Biology"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "माध्यमिक एवं उ. मा. शिक्षा",
+    "name": "श्रीमती पुष्पा कटारा",
+    "degree": "M.A., B.Ed.",
+    "Designation": "Sr. Teacher - English"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "माध्यमिक एवं उ. मा. शिक्षा",
+    "name": "श्री जितेन्द्र शाह",
+    "degree": "M.Sc., B.Ed.",
+    "Designation": "Sr. Teacher - Maths"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "माध्यमिक एवं उ. मा. शिक्षा",
+    "name": "श्री प्रवीण पाटीदार",
+    "degree": "B.A., B.Ed.",
+    "Designation": "Teacher - L2"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "प्रयोगशाला सहायक",
+    "name": "श्रीमती पंकज बाला बडजोड़",
+    "degree": "B.A., B.Ed.",
+    "Designation": "Lab Assistant"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "प्रयोगशाला सहायक",
+    "name": "श्रीमती संयोगिता पाटीदार",
+    "degree": "—",
+    "Designation": "Skill Trainer"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "व्यवसायिक शिक्षक",
+    "name": "श्री जयपाल सिंह चौहान",
+    "degree": "M.B.A.",
+    "Designation": "V.T. Retail"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "व्यवसायिक शिक्षक",
+    "name": "श्री नितिन पाटीदार",
+    "degree": "B. Tech.",
+    "Designation": "V.T. Electronics & Hardware"
+  },
+  {
+    "url": "path/to/image.jpg",
+    "Categoryname": "समसा शिक्षक",
+    "name": "श्रीमती सविता टेलि",
+    "degree": "—",
+    "Designation": "समसा शिक्षक"
+  }
+]
