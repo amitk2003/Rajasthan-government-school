@@ -13,7 +13,7 @@ import Professor from "./pages/Professor.jsx";
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer/Footer.jsx';
-
+import Notfound from './pages/Notfound.jsx';
 function App() {
   return (
     <div className="max-h-[100vh] ">
@@ -32,6 +32,7 @@ function App() {
 
         {/* Professors by category */}
         <Route path="/professor/:category" element={<Professor />} />
+        <Route path="*" element={<Notfound />} />
       </Routes> 
       <Footer/>
       
