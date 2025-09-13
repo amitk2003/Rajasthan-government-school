@@ -35,24 +35,19 @@ export default function Footer() {
         {/* Contact + Socials */}
         <div>
           <h2 className="text-xl font-semibold text-amber-400 mb-3">Get in Touch</h2>
-          <p className="text-gray-300 text-sm">📍 Peth, Maharashtra</p>
-          <p className="text-gray-300 text-sm">📞 +91 98765 43210</p>
-          <p className="text-gray-300 text-sm">✉️ gssschoolpeth@example.com</p>
+          <p className="text-gray-300 text-sm"> Peth,Rajasthan </p>
+          <p className="text-gray-300 text-sm">+91 9413282231</p>
+          <p className="text-gray-300 text-sm"> gsspeeth@gmail.com</p>
 
           {/* Socials */}
           <div className="mt-4 flex space-x-4">
-            <Link to="https://www.instagram.com/amitkumar.6788/">
+            <Link to="https://www.instagram.com/gsss.peeth_1904/#">
               <img src={instagram} alt="Instagram" className="w-8 h-8 hover:scale-110 transition" />
             </Link>
-            <Link to="https://www.linkedin.com/in/amit-kumar-a5059624b/">
-              <img src={LinkedIn} alt="LinkedIn" className="w-8 h-8 hover:scale-110 transition" />
-            </Link>
-            <Link to="mailto:amitk200703@gmail.com">
+            <Link to="mailto: gsspeeth@gmail.com">
               <img src={email} alt="Email" className="w-8 h-8 hover:scale-110 transition" />
             </Link>
-            <Link to="https://github.com/amitk2003">
-              <img src={github} alt="GitHub" className="w-8 h-8 hover:scale-110 transition" />
-            </Link>
+            
           </div>
         </div>
       </div>
