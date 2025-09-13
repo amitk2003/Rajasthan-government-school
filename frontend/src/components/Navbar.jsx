@@ -32,10 +32,11 @@ export default function Navbar() {
   return (
     <>
       {/* Fixed Navbar */}
-      <nav className="fixed top-20 left-0 w-full bg-white shadow-md z-50 px-6 py-3 flex items-center justify-between">
-        <div className="max-w-screen-2xl mx-auto px-4 py-3 flex items-center justify-between w-full">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
+      <nav className="fixed top-20 left-0 w-full bg-white shadow-md z-50 px-6 py-3">
+        <div className="max-w-screen-2xl mx-auto px-4 py-3 flex items-center w-full">
+          
+          {/* Desktop Navigation (centered) */}
+          <div className="hidden md:flex items-center justify-center space-x-4 lg:space-x-6 flex-1">
             {navLinks.map((item, idx) => (
               <Link
                 key={idx}
@@ -65,10 +66,7 @@ export default function Navbar() {
                       key={idx}
                       to={prof.link}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-100"
-                      onClick={() => {
-                        setProfessorDropdownOpen(false);
-                        setMobileNavOpen(false);
-                      }}
+                      onClick={handleLinkClick}
                     >
                       {prof.title}
                     </Link>
@@ -78,10 +76,10 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Hamburger Menu Button */}
+          {/* Hamburger Menu Button (kept on right) */}
           <button
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
-            className="md:hidden text-gray-800 text-2xl hover:text-pink-600 transition-colors duration-300 p-2"
+            className="md:hidden ml-auto text-gray-800 text-2xl hover:text-pink-600 transition-colors duration-300 p-2"
             aria-label="Toggle Menu"
           >
             {mobileNavOpen ? <FiX /> : <FaHamburger />}
@@ -97,7 +95,7 @@ export default function Navbar() {
               key={idx}
               to={item.link}
               onClick={handleLinkClick}
-              className="text-2xl text-gray-800 font-semibold hover:text-pink-600 transition-colors duration-300"
+              className="text-gray-800 hover:text-yellow-600 transition-all duration-300 font-medium text-lg whitespace-nowrap"
             >
               {item.title}
             </Link>

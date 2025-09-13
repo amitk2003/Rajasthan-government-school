@@ -35,7 +35,8 @@ export default function Footer() {
         {/* Contact + Socials */}
         <div>
           <h2 className="text-xl font-semibold text-amber-400 mb-3">Get in Touch</h2>
-          <p className="text-gray-300 text-sm"> Peth,Rajasthan </p>
+          <p className="text-gray-300 text-sm"> Peeth,Rajasthan </p>
+          <p className="text-gray-300 text-sm">Main road .peeth- sarthuna road </p>
           <p className="text-gray-300 text-sm">+91 9413282231</p>
           <p className="text-gray-300 text-sm"> gsspeeth@gmail.com</p>
 
