@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 const Professor = () => {
   const { category } = useParams(); // get category from URL
-  VITE_HOME_URL=import.meta.env.VITE_HOME_URL || "http://localhost:5000"
+  // VITE_HOME_URL=import.meta.env.VITE_HOME_URL || "http://localhost:5000"
   // Extract English category inside parentheses, or fallback to the whole category
   const extractedCategory = category?.match(/\(([^)]+)\)/)?.[1] || category;
 
