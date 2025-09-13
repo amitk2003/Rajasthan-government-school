@@ -26,17 +26,16 @@ export default function Navbar() {
 
   const handleLinkClick = () => {
     setMobileNavOpen(false);
-    setProfessorDropdownOpen(false); // Close dropdown on navigation
+    setProfessorDropdownOpen(false);
   };
 
   return (
     <>
-      {/* Fixed Navbar */}
-      <nav className="fixed top-20 left-0 w-full bg-white shadow-md z-50 px-6 py-3">
-        <div className="max-w-screen-2xl mx-auto px-4 py-3 flex items-center w-full">
-          
-          {/* Desktop Navigation (centered) */}
-          <div className="hidden md:flex items-center justify-center space-x-4 lg:space-x-6 flex-1">
+      {/* Navbar below fixed Header */}
+      <nav className="fixed top-[80px] left-0 w-full bg-white shadow-md z-50 px-6 py-3 max-w-screen-2xl mx-auto">
+        <div className="flex items-center justify-between w-full">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center justify-center space-x-6 w-full">
             {navLinks.map((item, idx) => (
               <Link
                 key={idx}
@@ -76,7 +75,7 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Hamburger Menu Button (kept on right) */}
+          {/* Hamburger Menu Button Mobile */}
           <button
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
             className="md:hidden ml-auto text-gray-800 text-2xl hover:text-pink-600 transition-colors duration-300 p-2"
@@ -89,7 +88,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileNavOpen && (
-        <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6 md:hidden">
+        <div className="fixed inset-0 top-[130px] bg-white z-40 flex flex-col items-center justify-start space-y-6 md:hidden pt-6">
           {navLinks.map((item, idx) => (
             <Link
               key={idx}
@@ -101,7 +100,7 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Professor Dropdown in Mobile */}
+          {/* Professor Dropdown on Mobile */}
           <div className="flex flex-col items-center">
             <button
               onClick={() => setProfessorDropdownOpen(!professorDropdownOpen)}
@@ -129,7 +128,7 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Background Overlay */}
+      {/* Background Overlay to close mobile menu */}
       {mobileNavOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
@@ -137,8 +136,8 @@ export default function Navbar() {
         />
       )}
 
-      {/* Spacer below fixed navbar */}
-      <div className="h-[80px] sm:h-[88px] md:h-[96px]" />
+      {/* Spacer to avoid content overlap below fixed header + navbar */}
+      <div className="h-[160px] sm:h-[168px] md:h-[176px]" />
     </>
   );
 }

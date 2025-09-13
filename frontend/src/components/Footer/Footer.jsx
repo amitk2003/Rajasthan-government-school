@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import instagram from "./instagram.png";
-import LinkedIn from "./linkedin.png";
 import email from "./email.png";
-import github from "./github.png";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-zinc-700 text-white py-10 mt-20">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
+    <footer className="bg-zinc-700 text-white py-10 mt-20 w-full">
+      {/* Content Container */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
+        
         {/* About Section */}
         <div>
           <h2 className="text-2xl font-bold text-amber-400">GSS School, Peth</h2>
@@ -35,20 +35,27 @@ export default function Footer() {
         {/* Contact + Socials */}
         <div>
           <h2 className="text-xl font-semibold text-amber-400 mb-3">Get in Touch</h2>
-          <p className="text-gray-300 text-sm"> Peeth,Rajasthan </p>
-          <p className="text-gray-300 text-sm">Main road .peeth- sarthuna road </p>
+          <p className="text-gray-300 text-sm">Peeth, Rajasthan</p>
+          <p className="text-gray-300 text-sm">Main road, Peeth-Sarthuna road</p>
           <p className="text-gray-300 text-sm">+91 9413282231</p>
-          <p className="text-gray-300 text-sm"> gsspeeth@gmail.com</p>
+          <p className="text-gray-300 text-sm">gsspeeth@gmail.com</p>
 
           {/* Socials */}
           <div className="mt-4 flex space-x-4">
             <Link to="https://www.instagram.com/gsss.peeth_1904/#">
-              <img src={instagram} alt="Instagram" className="w-8 h-8 hover:scale-110 transition" />
+              <img
+                src={instagram}
+                alt="Instagram"
+                className="w-8 h-8 hover:scale-110 transition"
+              />
             </Link>
-            <Link to="mailto: gsspeeth@gmail.com">
-              <img src={email} alt="Email" className="w-8 h-8 hover:scale-110 transition" />
+            <Link to="mailto:gsspeeth@gmail.com">
+              <img
+                src={email}
+                alt="Email"
+                className="w-8 h-8 hover:scale-110 transition"
+              />
             </Link>
-            
           </div>
         </div>
       </div>
