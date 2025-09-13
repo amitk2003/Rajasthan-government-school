@@ -12,7 +12,6 @@ export default function Navbar() {
     { title: "About", link: "/about" },
     { title: "Admissions", link: "/admissions" },
     { title: "Gallery", link: "/gallery" },
-    { title: "Contact", link: "/contact" },
     { title: "Topper", link: "/Topper" },
   ];
 
@@ -21,17 +20,20 @@ export default function Navbar() {
     { title: "Lab Assistant", link: "/professor/प्रयोगशाला सहायक(Lab Assistant)" },
     { title: "Science", link: "/professor/विज्ञान वर्ग(Science)" },
     { title: "Arts", link: "/professor/कला वर्ग(Arts)" },
-    { title: "Voccational Teacher", link: "/professor/व्यवसायिक शिक्षक(Vocational Teacher)" },
+    { title: "Vocational Teacher", link: "/professor/व्यवसायिक शिक्षक(Vocational Teacher)" },
     { title: "secondary-Education", link: "/professor/माध्यमिक एवं उ. मा. शिक्षा(secondary Education)" },
   ];
 
-  const handleLinkClick = () => setMobileNavOpen(false);
+  const handleLinkClick = () => {
+    setMobileNavOpen(false);
+    setProfessorDropdownOpen(false); // Close dropdown on navigation
+  };
 
   return (
     <>
       {/* Fixed Navbar */}
       <nav className="fixed top-20 left-0 w-full bg-white shadow-md z-50 px-6 py-3 flex items-center justify-between">
-        <div className="max-w-screen-2xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="max-w-screen-2xl mx-auto px-4 py-3 flex items-center justify-between w-full">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navLinks.map((item, idx) => (
@@ -39,6 +41,7 @@ export default function Navbar() {
                 key={idx}
                 to={item.link}
                 className="text-gray-800 hover:text-yellow-400 transition-all duration-300 font-medium text-sm lg:text-base whitespace-nowrap"
+                onClick={handleLinkClick}
               >
                 {item.title}
               </Link>
@@ -49,6 +52,8 @@ export default function Navbar() {
               <button
                 onClick={() => setProfessorDropdownOpen(!professorDropdownOpen)}
                 className="text-gray-800 hover:text-yellow-400 transition-all duration-300 font-medium text-sm lg:text-base"
+                aria-haspopup="true"
+                aria-expanded={professorDropdownOpen}
               >
                 Professor ▾
               </button>
@@ -60,7 +65,10 @@ export default function Navbar() {
                       key={idx}
                       to={prof.link}
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-yellow-100"
-                      onClick={() => setProfessorDropdownOpen(false)}
+                      onClick={() => {
+                        setProfessorDropdownOpen(false);
+                        setMobileNavOpen(false);
+                      }}
                     >
                       {prof.title}
                     </Link>
@@ -100,6 +108,8 @@ export default function Navbar() {
             <button
               onClick={() => setProfessorDropdownOpen(!professorDropdownOpen)}
               className="text-2xl text-gray-800 font-semibold hover:text-pink-600 transition-colors duration-300"
+              aria-haspopup="true"
+              aria-expanded={professorDropdownOpen}
             >
               Professor ▾
             </button>

@@ -4,16 +4,21 @@ import { useParams } from "react-router-dom";
 
 const Professor = () => {
   const { category } = useParams(); // get category from URL
+
+  // Extract English category inside parentheses, or fallback to the whole category
+  const extractedCategory = category?.match(/\(([^)]+)\)/)?.[1] || category;
+
   const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
     const fetchTeachers = async () => {
       try {
-        const url = category
-          ? `http://localhost:5000/api/professor?category=${encodeURIComponent(category)}`
+        const url = extractedCategory
+          ? `http://localhost:5000/api/professor?category=${encodeURIComponent(extractedCategory)}`
           : "http://localhost:5000/api/professor";
 
         const response = await axios.get(url);
+        console.log("Fetched professors:", response.data); // Debug log
         setTeachers(response.data);
       } catch (error) {
         console.error("Error fetching teachers:", error);
@@ -21,12 +26,12 @@ const Professor = () => {
     };
 
     fetchTeachers();
-  }, [category]);
+  }, [extractedCategory]);
 
   return (
     <div>
       <h2 className="text-xl font-bold mb-4">
-        {category ? `Professors in ${category}` : "All Professors"}
+        {extractedCategory ? `Professors in ${extractedCategory}` : "All Professors"}
       </h2>
 
       <div
@@ -43,6 +48,8 @@ const Professor = () => {
                 padding: "20px",
                 width: "250px",
                 textAlign: "center",
+                backgroundColor: "#fafafa",
+                borderRadius: "8px",
               }}
             >
               {professor.Image ? (
@@ -54,15 +61,21 @@ const Professor = () => {
                     height: "auto",
                     maxHeight: "200px",
                     objectFit: "cover",
+                    borderRadius: "4px",
+                    marginBottom: "10px",
+                  }}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "/placeholder-image.png"; // fallback image path
                   }}
                 />
               ) : (
                 <p>No image available</p>
               )}
-              <h3>{professor.Categoryname}</h3>
-              <p>Name: {professor.name}</p>
-              <p>Degree: {professor.degree}</p>
-              <p>Designation: {professor.Designation}</p>
+              <h3>{professor.Categoryname || "Category Unknown"}</h3>
+              <p>Name: {professor.name || "N/A"}</p>
+              <p>Degree: {professor.degree || "N/A"}</p>
+              <p>Designation: {professor.Designation || "N/A"}</p>
             </div>
           ))
         ) : (

@@ -4,11 +4,10 @@ import axios from 'axios';
 const TopperList = () => {
   const [toppers, setToppers] = useState([]);
 
-  // Fetch toppers from the backend
   useEffect(() => {
     const fetchToppers = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/topper-list'); // Adjust URL to your backend
+        const response = await axios.get('http://localhost:5000/api/topper-list');
         setToppers(response.data);
       } catch (error) {
         console.error('Error fetching toppers:', error);
@@ -18,38 +17,40 @@ const TopperList = () => {
   }, []);
 
   return (
-    <div className="topper-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+    <div className="p-6">
+      <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
+        🎓 School Toppers
+      </h2>
+
       {toppers.length > 0 ? (
-        toppers.map((topper) => (
-          <div
-            key={topper._id}
-            className="topper-card"
-            style={{
-              border: '1px solid #ccc',
-              padding: '20px',
-              width: '250px',
-              textAlign: 'center',
-            }}
-          >
-            {topper.Image ? (
-              <img
-                // src={`data:image/jpg;base64,${topper.Image}`} // 
-                // Adjust MIME type if needed (e.g., image/png)
-                src={topper.Image ? `data:${topper.mimeType};base64,${topper.Image}` : ''}
-                alt={topper.name}
-                style={{ width: '100%', height: 'auto', maxHeight: '200px', objectFit: 'cover' }}
-              />
-            ) : (
-              <p>No image available</p>
-            )}
-            <h3>{topper.name}</h3>
-            <p>Class: {topper.Class}</p>
-            <p>Stream: {topper.stream}</p>
-            <p>Percentage: {topper.Percentage}%</p>
-          </div>
-        ))
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {toppers.map((topper) => (
+            <div
+              key={topper._id}
+              className="bg-white shadow-lg rounded-2xl p-4 flex flex-col items-center hover:scale-105 transition-transform duration-300"
+            >
+              {topper.Image ? (
+                <img
+                  src={`data:${topper.mimeType};base64,${topper.Image}`}
+                  alt={topper.name}
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+              ) : (
+                <div className="w-full h-48 flex items-center justify-center bg-gray-100 text-gray-500 rounded-lg mb-4">
+                  No Image
+                </div>
+              )}
+              <h3 className="text-lg font-semibold text-gray-800">{topper.name}</h3>
+              <p className="text-gray-600">Class: {topper.Class}</p>
+              <p className="text-gray-600">Stream: {topper.stream}</p>
+              <p className="mt-2 font-bold text-green-600 text-lg">
+                {topper.Percentage}
+              </p>
+            </div>
+          ))}
+        </div>
       ) : (
-        <p>Loading toppers...</p>
+        <p className="text-center text-gray-500">Loading toppers...</p>
       )}
     </div>
   );

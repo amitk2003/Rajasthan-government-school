@@ -6,6 +6,7 @@ import teacher_route from "./controller/Teacher_role.js";
 import Topperrouter from "./controller/Topper_route.js";
 import cors from "cors"
 import router from "./controller/User_credential.js";
+import admission_route from './controller/Admission_route.js';
 // import multer from "multer";
 // import path from "path"
 
@@ -26,7 +27,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
 app.use(
     cors({
-      origin: "http://localhost:5174", // Change this to your frontend URL
+      origin: "http://localhost:5173", // Change this to your frontend URL
       methods: "GET,POST,PUT,DELETE",
       credentials: true,
     })
@@ -39,6 +40,7 @@ app.get("/",(req,res)=>{
 app.use("/api",router);
 app.use("/api",teacher_route);
 app.use("/api",Topperrouter);
+app.use("/api",admission_route)
 
 // app.post('/upload', upload.single('image'), (req, res) => {
 //   if (!req.file) {

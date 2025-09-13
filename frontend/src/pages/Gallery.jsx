@@ -1,17 +1,36 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import Glab from "../assets/school-material/Geography_lab.jpg";
+import Rlab from "../assets/school-material/Retail_lab.jpg";
+import Poffice from "../assets/school-material/principal_office.jpg";
+import fest from "../assets/gallery/fest.jpg"
+import yoga from "../assets/gallery/yoga.jpg"
+import greenery from "../assets/school-material/greenery_school.jpg"
+import entrance from "../assets/school-material/campus1.jpg"
+import voc_lab from "../assets/gallery/voc_lab.jpg"
+import science_lab from "../assets/gallery/science_lab.jpg"
+import student from "../assets/gallery/student.jpg"
+import schoolA  from "../assets/gallery/school_activity.jpg"
 
 // Example images (replace with real ones)
-const galleryImages = [
-  { id: 1, src: "./assets/school-material/Geography_lab.jpg", category: "Events", title: "Tech Fest 2025" },
-  { id: 2, src: "/images/gallery2.jpg", category: "Labs", title: "Electronics Lab" },
-  { id: 3, src: "/images/gallery3.jpg", category: "Sports", title: "Annual Sports Meet" },
-  { id: 4, src: "/images/gallery4.jpg", category: "Toppers", title: "Topper's Felicitation" },
-  { id: 5, src: "/images/gallery5.jpg", category: "Events", title: "Cultural Fest" },
-];
 
-const categories = ["All", "Events", "Labs", "Sports", "Toppers"];
+const galleryImages = [
+  { id: 1, src: Glab, category: "Labs", title: "Geography_lab" },
+  { id: 2, src: Rlab, category: "Labs", title: "Retail Lab" },
+  { id: 3, src: Poffice, category: "office", title: "principal office" },
+  { id: 4, src: fest, category: "Events ", title: "Annual fest" },
+  { id: 5, src: yoga, category: "Events", title: "yoga" },
+  { id: 6, src: greenery, category: "campus", title: "campus_greenery" },
+  { id: 7, src: entrance, category: "campus", title: "school_entrance" },
+  { id: 8, src: voc_lab, category: "Labs", title: "Vocational Lab" },
+  { id: 9, src: science_lab, category: "Labs", title: "Science Lab" },
+  { id: 10, src: student, category: "Events", title: "student activity" },
+  { id: 11, src: schoolA, category: "Events", title: "school activity" },
+
+
+];
+const categories = ["All", "Events","office", "Labs","campus"];
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
