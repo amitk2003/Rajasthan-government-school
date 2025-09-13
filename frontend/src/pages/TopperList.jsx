@@ -8,7 +8,7 @@ const TopperList = () => {
   useEffect(() => {
     const fetchToppers = async () => {
       try {
-        const response = await axios.get(import.meta.env.VITE_HOME_URL+"api/topper-list");
+        const response = await axios.get(`${import.meta.env.VITE_HOME_URL}api/topper-list`);
         setToppers(response.data);
       } catch (error) {
         console.error('Error fetching toppers:', error);

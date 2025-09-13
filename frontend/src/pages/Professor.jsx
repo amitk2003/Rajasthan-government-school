@@ -15,7 +15,7 @@ const Professor = () => {
       try {
         const url = extractedCategory
           ? `${import.meta.env.VITE_HOME_URL}api/professor?category=${encodeURIComponent(extractedCategory)}`
-          : import.meta.env.VITE_HOME_URL+"api/professor";
+          : `{import.meta.env.VITE_HOME_URL}api/professor`;
 
         const response = await axios.get(url);
         console.log("Fetched professors:", response.data); // Debug log
