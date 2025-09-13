@@ -6,7 +6,7 @@ const Header = () => {
        {/* Logo */}
           <Link to="/" className="flex flex-col">
             <h1 className="text-lg md:text-2xl font-bold text-blue-900">
-              Government Higher Secondary School, Peedh
+              Government Higher Secondary School, Peeth
             </h1>
             <p className="text-xs md:text-sm text-gray-600">
               राजकीय उच्च माध्यमिक विद्यालय, पीठ
