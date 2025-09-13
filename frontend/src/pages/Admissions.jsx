@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+const local_url="http://localhost:5000"
 
 const AdmissionForm = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ const AdmissionForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/admission", formData);
+      const res = await axios.post(import.meta.env.VITE_HOME_URL+"api/admission", formData);
       setMessage(res.data.message);
       setFormData({ name: "", class: "", email: "", phone: "", address: "" });
     } catch (error) {
