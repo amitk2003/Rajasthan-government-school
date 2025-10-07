@@ -89,14 +89,18 @@ The website includes:
 
 ## 📸 Screenshots  
 
-### Professors Section  
-![Professors Section](./assets/screenshots/professors.png)  
+### CAROUSEL Section  
+![Carousel Screenshot](./frontend/src/assets/carousel.png)
+### Topper Section  
+![Toppers Screenshot](./frontend/src/assets/topper.png)
+### professor Section  
+![professor Section](./frontend/src/assets/professor.png) 
 
 ### Gallery Section  
-![Gallery Section](./assets/screenshots/gallery.png)  
+![Gallery Section](./frontend/src/assets/gallery.png)  
 
 ### Admission Form  
-![Admission Form](./assets/screenshots/admission.png)  
+![Admission Form](./frontend/src/assets/admission.png)  
 
 ---
 
