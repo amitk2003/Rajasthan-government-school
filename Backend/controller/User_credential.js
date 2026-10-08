@@ -63,19 +63,24 @@ router.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(password, ExistingUser.password);
 
     if (isMatch) {
-      const authClaims = [
-        { name: ExistingUser.Username },
-        { role: ExistingUser.role },
-      ];
+      const jwtSecret = process.env.JWT_SECRET || "Gss_school_peth";
+      const token = jwt.sign(
+        {
+          id: ExistingUser._id,
+          name: ExistingUser.Username,
+          role: ExistingUser.role || "user",
+          email: ExistingUser.Email
+        },
+        jwtSecret,
+        { expiresIn: "30d" }
+      );
 
-      const token = jwt.sign({ authClaims }, "bookstore234", {
-        expiresIn: "30d",
+      return res.status(200).json({
+        id: ExistingUser._id,
+        role: ExistingUser.role || "user",
+        name: ExistingUser.Username,
+        token: token,
       });
-
-      console.log(authClaims);
-      return res
-        .status(200)
-        .json({ id: ExistingUser._id, role: ExistingUser.role, token: token });
     } else {
       return res.status(400).json({ message: "Invalid credentials" });
     }

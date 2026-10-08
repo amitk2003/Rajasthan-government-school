@@ -1,74 +1,88 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Lightbulb, Users, Rocket } from "lucide-react";
+import { Lightbulb, Users, Rocket, Target, ShieldCheck, HeartHandshake } from "lucide-react";
+
+const values = [
+  {
+    icon: Lightbulb,
+    color: "text-amber-500",
+    bg: "bg-amber-50",
+    border: "border-amber-200",
+    title: "Inquiry & Scientific Curiosity",
+    hindi: "जिज्ञासा एवं नवाचार",
+    description: "Encouraging learners to question fearlessly, explore natural phenomena in laboratories, and develop empirical scientific mindsets.",
+  },
+  {
+    icon: ShieldCheck,
+    color: "text-blue-500",
+    bg: "bg-blue-50",
+    border: "border-blue-200",
+    title: "Moral Integrity & Citizenship",
+    hindi: "नैतिक मूल्य एवं नागरिक दायित्व",
+    description: "Inculcating civic duties, national pride, environmental consciousness, and unshakeable ethical character across all grades.",
+  },
+  {
+    icon: Rocket,
+    color: "text-emerald-500",
+    bg: "bg-emerald-50",
+    border: "border-emerald-200",
+    title: "Vocational & Practical Mastery",
+    hindi: "कौशल एवं व्यवसायिक दक्षता",
+    description: "Bridging textbook knowledge with NSQF practical retail, computer literacy, and vocational acumen for self-reliant futures.",
+  },
+  {
+    icon: HeartHandshake,
+    color: "text-purple-500",
+    bg: "bg-purple-50",
+    border: "border-purple-200",
+    title: "Inclusive Community Learning",
+    hindi: "समावेशी एवं समतामूलक शिक्षा",
+    description: "Empowering every child from rural backgrounds with equal dignity, gender sensitivity, and subsidized welfare schemes.",
+  },
+];
 
 const Mission = () => {
   return (
-    <section className="bg-gradient-to-r from-amber-50 to-white py-16 px-6">
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Animated Heading */}
-        <motion.h2
-          className="text-4xl font-bold text-amber-600 mb-6"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Our Mission
-        </motion.h2>
+    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-200">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-900 font-bold text-xs uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+            <Target className="w-3.5 h-3.5 text-blue-600" /> Core Pedagogical Philosophy
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Our Vision, Mission & Institutional Charter
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed font-devanagari">
+            हमारा ध्येय: उत्कृष्ट, समावेशी एवं भविष्योन्मुखी शिक्षा का केंद्र
+          </p>
+        </div>
 
-        {/* Main Mission Statement */}
-        <motion.p
-          className="text-lg text-gray-700 mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          To provide <span className="font-semibold">quality education</span> that nurtures 
-          <span className="text-amber-600"> curiosity</span>, 
-          <span className="text-amber-600"> creativity</span>, and 
-          <span className="text-amber-600"> leadership</span> in every student.
-        </motion.p>
-
-        {/* Mission Features */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <motion.div
-            className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-2"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Lightbulb className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Curiosity</h3>
-            <p className="text-gray-600">
-              Encouraging students to ask questions and discover the world around them.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-2"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Users className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Creativity</h3>
-            <p className="text-gray-600">
-              Fostering innovation through arts, sciences, and technology.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-2"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <Rocket className="w-12 h-12 text-green-500 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold mb-2">Leadership</h3>
-            <p className="text-gray-600">
-              Building confidence and responsibility to lead in academics and life.
-            </p>
-          </motion.div>
+        {/* 4 Values Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className={`w-12 h-12 rounded-xl ${item.bg} border ${item.border} flex items-center justify-center mb-4`}>
+                    <Icon className={`w-6 h-6 ${item.color}`} />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900">
+                    {item.title}
+                  </h3>
+                  <div className="text-xs font-semibold text-blue-900 font-devanagari mt-0.5 mb-2">
+                    {item.hindi}
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

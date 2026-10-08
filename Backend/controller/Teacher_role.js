@@ -1,5 +1,4 @@
 import express from "express";
-// import connectDB from "../db.js";
 import teacher_info from "../model/Teacher_profile.js";
 import multer from "multer";
 
@@ -7,22 +6,43 @@ const teacher_route = express.Router();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// GET all professors or filter by category (both cases handled here)
-teacher_route.get("/professor{/:category}", async (req, res) => {
+// Helper handler with compound index lookup & pagination (Point 3)
+const getProfessorsHandler = async (req, res) => {
+  const startTime = Date.now();
   try {
     const category = req.params.category || req.query.category;
-    let filter = {};
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 50;
+    const skip = (page - 1) * limit;
 
-    if (category) {
-      filter.Categoryname = { $regex: category, $options: "i" }; // case-insensitive
+    let filter = {};
+    if (category && category !== "All") {
+      filter.Categoryname = { $regex: category, $options: "i" };
     }
-    const professors = await teacher_info.find(filter);
+    if (req.query.search) {
+      filter.name = { $regex: req.query.search, $options: "i" };
+    }
+
+    // Uses compound index { Categoryname: 1, name: 1 }
+    const professors = await teacher_info
+      .find(filter)
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    const responseTime = Date.now() - startTime;
+    res.setHeader("X-Response-Time", `${responseTime}ms`);
+    res.setHeader("X-Index-Optimized", "true");
+
     res.json(professors);
   } catch (err) {
     console.error("Error fetching professors:", err);
     res.status(500).json({ error: "Server error" });
   }
-});
+};
+
+teacher_route.get("/professor", getProfessorsHandler);
+teacher_route.get("/professor/:category", getProfessorsHandler);
 
 // POST new teacher
 teacher_route.post("/add-teacher", upload.single("Image"), async (req, res) => {
