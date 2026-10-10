@@ -1,9 +1,8 @@
-<<<<<<< HEAD
+
 # Government Higher Secondary School, Peeth (Govt. of Rajasthan)
 ### Full-Stack School Management System & Institutional Web Portal
 
-[![CI/CD Pipeline](https://github.com/amitk2003/Rajasthan-government-school/actions/workflows/deploy.yml/badge.svg)](https://github.com/amitk2003/Rajasthan-government-school/actions)
-[![AWS EC2](https://img.shields.io/badge/Deployed-AWS%20EC2-orange?logo=amazon-aws)](https://aws.amazon.com/)
+
 [![Node.js](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-green?logo=node.js)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/Frontend-React%2019%20%7C%20Vite-blue?logo=react)](https://react.dev/)
 [![MongoDB](https://img.shields.io/badge/Database-MongoDB%20Atlas-brightgreen?logo=mongodb)](https://mongodb.com/)
@@ -242,4 +241,4 @@ The website includes:
 ## 👨‍💻 Author  
 **Amit Kumar**  
 - GitHub: [amitk2003](https://github.com/amitk2003)  
->>>>>>> 5aa94a33641e867da9292e4eef49e0afa1e7586b
+
