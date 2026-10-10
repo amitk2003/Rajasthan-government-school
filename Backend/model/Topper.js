@@ -1,6 +1,7 @@
+
 import mongoose from 'mongoose';
 
-// Define allowed MIME types (example)
+// Define allowed MIME types
 const allowedMimeTypes = [
   'image/jpeg',
   'image/png',
@@ -8,41 +9,47 @@ const allowedMimeTypes = [
   'application/pdf',
 ];
 
-const Topper = new mongoose.Schema({
-  Image: {
-    type: String,
-    required: true,
-  },
-  mimeType: {
-    type: String,
-    required: true,
-    validate: {
-      validator: function (value) {
-        return allowedMimeTypes.includes(value);
+const Topper = new mongoose.Schema(
+  {
+    Image: {
+      type: String,
+      required: true,
+    },
+    mimeType: {
+      type: String,
+      required: true,
+      validate: {
+        validator: function (value) {
+          return allowedMimeTypes.includes(value);
+        },
+        message: (props) => `${props.value} is not a valid MIME type!`,
       },
-      message: (props) => `${props.value} is not a valid MIME type!`,
+    },
+    Class: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    stream: {
+      type: String,
+      required: true,
+    },
+    Percentage: {
+      type: String,
+      required: true,
     },
   },
-  Class: {
-    type: String,
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  stream: {
-    type: String,
-    required: true,
-  },
-  Percentage: {
-    type: String,
-    required: true,
-  }, timestamps: true
-});
+  {
+    timestamps: true,
+  }
+);
 
-// Compound index on Class, stream and Percentage (Point 3: ~15% query latency reduction)
+// Compound index
 Topper.index({ Class: 1, stream: 1, Percentage: -1 });
 
 const topper_info = mongoose.model('topper_list', Topper);
+
 export default topper_info;
