@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Government Higher Secondary School, Peeth (Govt. of Rajasthan)
 ### Full-Stack School Management System & Institutional Web Portal
 
@@ -242,4 +242,4 @@ The website includes:
 ## 👨‍💻 Author  
 **Amit Kumar**  
 - GitHub: [amitk2003](https://github.com/amitk2003)  
->>>>>>> 5aa94a33641e867da9292e4eef49e0afa1e7586b
+
